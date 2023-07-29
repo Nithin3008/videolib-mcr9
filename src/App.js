@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router";
+import "./App.css";
+import Navigation from "./page/NavSection/Navigation";
+import Explore from "./page/Explore/Explore";
+import WatchLater from "./page/WatchLater/WatchLater";
+import PlayList from "./page/PlayList/PlayListPage";
+import Home from "./page/Home/Home";
+import VideoPages from "./page/Video/VideoPages";
+import EachVideo from "./page/Video/EachVideo";
+import SinglePlaylist from "./page/PlayList/SinglePlaylist";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex gap-5">
+      <div>
+        <Navigation></Navigation>
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/Explore" element={<Explore />}></Route>
+        <Route path="/WatchLater" element={<WatchLater />}></Route>
+        <Route path="/PlayList" element={<PlayList />}></Route>
+        <Route path="/VideoPages/:categoryId" element={<VideoPages />}></Route>
+        <Route path="/EachVideo/:videoId" element={<EachVideo />}></Route>
+        <Route
+          path="/SinglePlaylist/:playlistName"
+          element={<SinglePlaylist></SinglePlaylist>}
+        ></Route>
+      </Routes>
     </div>
   );
 }
