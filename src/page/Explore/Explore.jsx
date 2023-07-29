@@ -17,6 +17,7 @@ const Explore = () => {
           dispatch({ type: "search", payload: event.target.value })
         }
         placeholder="search your title"
+        className=" text-xl border-2 border-stone-800 outline-none"
       ></input>
       <div className="flex flex-wrap">
         {VideoDataNew.map((val) => (
