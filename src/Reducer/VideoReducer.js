@@ -79,9 +79,9 @@ export function VideoProvider({ children }) {
     } else if ((action.type = "search")) {
       return { ...state, search: action.payload };
     }
+    localStorage.setItem("data", JSON.stringify(state));
     return state;
   }
-  console.log(state.video);
   return (
     <VideoContext.Provider
       value={{
