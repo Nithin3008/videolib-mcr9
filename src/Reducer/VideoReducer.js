@@ -7,6 +7,7 @@ export function VideoProvider({ children }) {
     playlist: [],
     watchlater: [],
     video: [...videos],
+    search: "",
   };
   const [state, dispatch] = useReducer(ReduceFunc, initialState);
   function ReduceFunc(state, action) {
@@ -75,6 +76,8 @@ export function VideoProvider({ children }) {
         }
       });
       return { ...state, playlist: x };
+    } else if ((action.type = "search")) {
+      return { ...state, search: action.payload };
     }
     return state;
   }
@@ -86,6 +89,7 @@ export function VideoProvider({ children }) {
         VideoData: state.video,
         Playlist: state.playlist,
         WatchLater: state.watchlater,
+        search: state.search,
       }}
     >
       {children}
